@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}All Categories{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+    <header id="header">
+        <a href="{{ SITEURL }}/" class="title">{{ SITENAME }}</a>
+        <nav>
+            {% include "fragments/menu.html" %}
+        </nav>
+    </header>
+    
+	<div id="wrapper">
+        <section id="main" class="wrapper">
+            <div class="inner">
+                <h1>All Categories</h1>
+            </div>
+        </section>
+        <section id="categories" class="wrapper style2">
+            <div class="inner">
+                <div class="features">
+                    {% for category, category_articles in categories|sort %}
+                        {% set latest_article = category_articles|first %}
+                        <section>
+                            <h2>{{ category }}</h2>
+                            <p>
+                                There are {{ category_articles|count }} articles in this category.
+                                {% if latest_article %}Latest article is <a href="{{ SITEURL }}/{{ latest_article.url }}">{{ latest_article.title }}</a> posted on {{ latest_article.locale_date }}.{% endif %}
+                            </p>
+                            <ul class="actions">
+                                <li><a class="button" href="{{ SITEURL }}/{{ category.url }}">View articles</a></li>
+                            </ul>
+                        </section>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <section id="article_links" class="wrapper style1">
+            <div class="inner">
+                {% with exclude_for = "categories" %}
+                    {% include "fragments/article_links.html" %}
+                {% endwith %}
+            </div>
+        </section>
+    </div>
+
+    {% include "fragments/footer.html" %}
+{% endblock %}

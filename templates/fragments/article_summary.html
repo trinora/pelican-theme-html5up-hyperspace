@@ -1,0 +1,15 @@
+{% if article.cover %}
+    <a href="{{ SITEURL }}/{{ article.url }}" class="image"><img src="{{ static }}/{{ article.cover }}" alt="" data-position="center center" /></a>
+{% endif %}
+<div class="content">
+    <div class="inner">
+        <header>
+            <h2>{{ article.title }}</h2>
+            <p style="font-size: 0.9em">Written by: <a href="{{ SITEURL }}/{{ article.author.url}}">{{ article.author }}</a>, on: {{ article.locale_date }}</p>
+        </header>
+        {{ article.summary }}
+        <ul class="actions">
+            <li><a href="{{ SITEURL }}/{{ article.url }}" class="button">Read more</a></li>
+        </ul>
+    </div>
+</div>

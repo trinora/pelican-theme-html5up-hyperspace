@@ -1,0 +1,18 @@
+<footer id="footer" class="wrapper {{ footer_style|default('alt') }}">
+    <div class="inner">
+        <div class="row">
+            {% for p in pages if p.slug == THEME_FOOTER_PAGE %}
+                {{ p.content }}
+            {% else %}
+                {% include "fragments/default_footer.html" %}
+            {% endfor %}
+        </div>
+        {% if not THEME_HIDE_ATTRIBUTION|default(false) %}
+            <ul class="menu">
+                <li>&copy; {{ SITENAME }}</li>
+                <li>Design by <a href="https://html5up.net" target="_blank">HTML5 UP</a> &amp; <a href="https://github.com/trinora" target="_blank">Trinora</a></li>
+                <li>Powered by <a href="https://getpelican.com/" target="_blank">Pelican</a></li>
+            </ul>
+        {% endif %}
+    </div>
+</footer>

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}{{ author }}{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+    <header id="header">
+        <a href="{{ SITEURL }}/" class="title">{{ SITENAME }}</a>
+        <nav>
+            {% include "fragments/menu.html" %}
+        </nav>
+    </header>
+    
+	<div id="wrapper">
+        <section id="main" class="wrapper">
+            <div class="inner">
+                <h1>Articles by {{ author }}</h1>
+                <ul class="actions">
+                    <li><a class="button" href="{{ SITEURL }}/{{ AUTHORS_SAVE_AS }}">See all authors</a></li>
+                </ul>
+            </div>
+        </section>
+        <section id="articles" class="wrapper style2 spotlights">
+            {% for article in articles_page.object_list %}
+                <section>
+                    {% include "fragments/article_summary.html" %}
+                </section>
+            {% endfor %}
+        </section><!-- #content -->
+        {% if articles_page.has_other_pages %}
+            <section id="paginator" class="wrapper">
+                <div class="inner">
+                    {% include "fragments/articles_paginator.html" %}
+                </div>
+            </section>
+        {% endif %}
+        <section id="article_links" class="wrapper style1">
+            <div class="inner">
+                {% include "fragments/article_links.html" %}
+            </div>
+        </section>
+    </div>
+
+    {% include "fragments/footer.html" %}
+{% endblock %}

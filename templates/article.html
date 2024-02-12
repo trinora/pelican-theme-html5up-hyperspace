@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+    <header id="header">
+        <a href="{{ SITEURL }}/" class="title">{{ SITENAME }}</a>
+        <nav>
+            {% include "fragments/menu.html" %}
+        </nav>
+    </header>
+    
+	<div id="wrapper">
+        <section id="article_head" class="wrapper style1-alt">
+            <div class="inner">
+                <h1 class="major">{{ article.title }}</h1>
+                <div class="row">
+                    <div class="col-3">
+                        <strong>Published on</strong><br>
+                        {{ article.locale_date }}
+                    </div>
+                    <div class="{% if article.translations %}col-3{% else %}col-4{% endif %}">
+                        <strong>Written by</strong><br>
+                        <ul>
+                            {% for a in article.authors %}
+                                <li><a href="{{ SITEURL }}/{{ a.url }}">{{ a.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="{% if article.translations %}col-3{% else %}col-5{% endif %}">
+                        <strong>Filled under</strong>
+                        <ul>
+                            {% if article.category %}
+                                <li><a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category.name }}</a></li>
+                            {% endif %}
+                            {% for t in article.tags %}
+                                <li><a class="small" href="{{ SITEURL }}/{{ t.url }}">{{ t.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% if article.translations %}
+                    <div class="col-3">
+                        <strong>Translations</strong><br>
+                        <ul>
+                            {% for t in article.translations %}
+                                <li><a href="{{ SITEURL }}/{{ t.url }}">{{ t.lang }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+        {% if article.cover %}
+            <section id="article_image" class="wrapper fullscreen fade-up" style="background-attachment: fixed;background-image: url('{{ static }}/{{ article.cover }}');background-position: top right;background-repeat: no-repeat;background-size: 100% 100%;">
+                <div class="inner">
+                </div>
+            </section>
+        {% endif %}
+        <section id="article_content" class="wrapper style2">
+            <div class="inner">
+                {{ article.content }}
+            </div>
+        </section>
+        <section id="article_links" class="wrapper style1">
+            <div class="inner">
+                {% include "fragments/article_links.html" %}
+            </div>
+        </section>
+    </div>
+
+    {% with footer_style="style1-alt" %}
+        {% include "fragments/footer.html" %}
+    {% endwith %}
+{% endblock %}

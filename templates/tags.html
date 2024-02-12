@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}All Tags{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+    <header id="header">
+        <a href="{{ SITEURL }}/" class="title">{{ SITENAME }}</a>
+        <nav>
+            {% include "fragments/menu.html" %}
+        </nav>
+    </header>
+    
+	<div id="wrapper">
+        <section id="main" class="wrapper">
+            <div class="inner">
+                <h1>All Tags</h1>
+            </div>
+        </section>
+        <section id="tags" class="wrapper style2">
+            <div class="inner">
+                <ul class="alt">
+                    {% for tag, tag_articles in tags|sort %}
+                        <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag.name }} ({{ tag_articles|count }})</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+        <section id="article_links" class="wrapper style1">
+            <div class="inner">
+                {% with exclude_for = "tags" %}
+                    {% include "fragments/article_links.html" %}
+                {% endwith %}
+            </div>
+        </section>
+    </div>
+
+    {% include "fragments/footer.html" %}
+{% endblock %}

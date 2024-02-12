@@ -1,0 +1,20 @@
+{% if LINKS is defined %}
+<div class="col-6">
+    <h3>{{ LINKS_WIDGET_NAME|default('Links') }}</h3>
+    <ul class="alt">
+    {% for l_title, l_link in LINKS %}
+        <li><a href="{{ l_link }}">{{ l_title }}</a></li>
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}
+{% if SOCIAL is defined %}
+    <div class="col-4{% if LINKS is defined %} off-2{% endif %}">
+        <h3>{{ SOCIAL_WIDGET_NAME|default('Social') }}</h3>
+        <ul class="alt">
+        {% for s_title, s_link in SOCIAL %}
+            <li><a href="{{ s_link }}">{{ s_title }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endif %}

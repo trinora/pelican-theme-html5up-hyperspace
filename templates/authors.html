@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}All Authors{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+    <header id="header">
+        <a href="{{ SITEURL }}/" class="title">{{ SITENAME }}</a>
+        <nav>
+            {% include "fragments/menu.html" %}
+        </nav>
+    </header>
+    
+	<div id="wrapper">
+        <section id="main" class="wrapper">
+            <div class="inner">
+                <h1>All Authors</h1>
+            </div>
+        </section>
+        <section id="authors" class="wrapper style2">
+            <div class="inner">
+                <div class="features">
+                    {% for author, author_articles in authors|sort %}
+                        {% set latest_article = author_articles|first %}
+                        <section>
+                            <h3>{{ author }}</h3>
+                            <p>
+                                {{ author }} has written {{ author_articles|count }} articles on this website.
+                                {% if latest_article %}Their latest article is <a href="{{ SITEURL }}/{{ latest_article.url }}">{{ latest_article.title }}</a> posted on {{ latest_article.locale_date }}.{% endif %}
+                            </p>
+                            <ul class="actions">
+                                <li><a class="button" href="{{ SITEURL }}/{{ author.url }}">View articles</a></li>
+                            </ul>
+                        </section>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <section id="article_links" class="wrapper style1">
+            <div class="inner">
+                {% with exclude_for = "authors" %}
+                    {% include "fragments/article_links.html" %}
+                {% endwith %}
+            </div>
+        </section>
+    </div>
+
+    {% include "fragments/footer.html" %}
+{% endblock %}
