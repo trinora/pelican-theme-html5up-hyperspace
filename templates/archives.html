@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}All Articles{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+    <header id="header">
+        <a href="{{ SITEURL }}/" class="title">{{ SITENAME }}</a>
+        <nav>
+            {% include "fragments/menu.html" %}
+        </nav>
+    </header>
+    
+	<div id="wrapper">
+        <section id="main" class="wrapper">
+            <div class="inner">
+                <h1>All Articles</h1>
+            </div>
+        </section>
+        <section id="latest_article" class="wrapper style2 spotlights">
+            {% with article = dates|first %}
+                <section>
+                    {% include "fragments/article_summary.html" %}
+                </section>
+            {% endwith %}
+        </section><!-- #content -->
+        {% if dates|count > 1 %}
+            <section id="article_history" class="wrapper style2-alt">
+                <div class="inner">
+                    <h2>Older Articles</h2>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Date</th>
+                                    <th>Author</th>
+                                    <th>Category</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for article in dates %}
+                                    {% if not loop.first %}
+                                        <tr>
+                                            <td style="text-decoration: underline"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></td>
+                                            <td>{{ article.locale_date }}</td>
+                                            <td><a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a></td>
+                                            <td><a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section><!-- #content -->
+        {% endif %}
+        <section id="article_links" class="wrapper style1">
+            <div class="inner">
+                {% include "fragments/article_links.html" %}
+            </div>
+        </section>
+    </div>
+
+    {% include "fragments/footer.html" %}
+{% endblock %}
