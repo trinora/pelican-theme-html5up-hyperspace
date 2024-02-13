@@ -45,3 +45,4 @@ PAGINATED_TEMPLATES = {
     'index': 1,      # set to 1 so that only the "template info" article appears
     'tag': None, 'category': None, 'author': None
 }
+RELATIVE_URLS = True
