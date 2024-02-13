@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}All Categories{% endblock %}
+{% block title %}{{ THEME_LANG_CATEGORIES_PAGE|default('All Categories') }}{% endblock %}
 
 {% block content %}
 
@@ -15,7 +15,7 @@
 	<div id="wrapper">
         <section id="main" class="wrapper">
             <div class="inner">
-                <h1>All Categories</h1>
+                <h1>{{ THEME_LANG_CATEGORIES_PAGE|default('All Categories') }}</h1>
             </div>
         </section>
         <section id="categories" class="wrapper style2">
@@ -26,11 +26,13 @@
                         <section>
                             <h2>{{ category }}</h2>
                             <p>
-                                There are {{ category_articles|count }} articles in this category.
-                                {% if latest_article %}Latest article is <a href="{{ SITEURL }}/{{ latest_article.url }}">{{ latest_article.title }}</a> posted on {{ latest_article.locale_date }}.{% endif %}
+                                {{ THEME_LANG_ARTICLES_IN_CATEGORY_LINE_1|default('There are %s articles in this category.')|format(category_articles|count) }}
+                                {% if latest_article %}
+                                    {{ THEME_LANG_ARTICLES_IN_CATEGORY_LINE_2|default('Latest article is <a href="%s">%s</a> posted on %s.')|format(SITEURL + '/' + latest_article.url, latest_article.title, latest_article.locale_date) }}
+                                {% endif %}
                             </p>
                             <ul class="actions">
-                                <li><a class="button" href="{{ SITEURL }}/{{ category.url }}">View articles</a></li>
+                                <li><a class="button" href="{{ SITEURL }}/{{ category.url }}">{{ THEME_LANG_VIEW_ARTICLES|default('View articles') }}</a></li>
                             </ul>
                         </section>
                     {% endfor %}

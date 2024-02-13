@@ -2,7 +2,7 @@
     {% if exclude_for|default == "categories" %}
     {% else %}
         <div class="{% if exclude_for is defined %}col-5{% else %}col-3{% endif %}">
-            <h2><a href="{{ SITEURL }}/{{ CATEGORIES_SAVE_AS }}">Categories</a></h2>
+            <h2><a href="{{ SITEURL }}/{{ CATEGORIES_SAVE_AS }}">{{ THEME_LANG_CATEGORIES|default('Categories') }}</a></h2>
             <ul class="alt">
             {% for c, c_articles in categories|sort %}
                 <li><a href="{{ SITEURL }}/{{ c.url }}">{{ c.name }}</a> ({{ c_articles|count }})</li>
@@ -14,7 +14,7 @@
     {% if exclude_for|default == "tags" %}
     {% else %}
         <div class="{% if exclude_for is defined %}col-5{% else %}col-3{% endif %} off-1">
-            <h2><a href="{{ SITEURL }}/{{ TAGS_SAVE_AS }}">Tags</a></h2>
+            <h2><a href="{{ SITEURL }}/{{ TAGS_SAVE_AS }}">{{ THEME_LANG_TAGS|default('Tags') }}</a></h2>
             <ul class="alt">
             {% for t, t_articles in tags|sort %}
                 <li><a href="{{ SITEURL }}/{{ t.url }}">{{ t.name }}</a> ({{ t_articles|count }})</li>
@@ -26,7 +26,7 @@
     {% if exclude_for|default == "authors" %}
     {% else %}
         <div class="{% if exclude_for is defined %}col-5{% else %}col-3{% endif %} off-1">
-            <h2><a href="{{ SITEURL }}/{{ AUTHORS_SAVE_AS }}">Authors</a></h2>
+            <h2><a href="{{ SITEURL }}/{{ AUTHORS_SAVE_AS }}">{{ THEME_LANG_AUTHORS|default('Authors') }}</a></h2>
             <ul class="alt">
             {% for a, a_articles in authors|sort %}
                 <li><a href="{{ SITEURL }}/{{ a.url }}">{{ a.name }}</a> ({{ a_articles|count }})</li>

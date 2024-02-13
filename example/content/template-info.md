@@ -1,6 +1,11 @@
-Hyperspace by HTML5 UP
-----------------------
-Originally developed by [HTML5 UP](https://html5up.net/hyperspace). Ported to Pelican by [Trinora Software, Ltd.](https://trinora.software). Licensed under the under the Creative Commons Attribution 3.0 license. Please keep all attribution notices in place.
+Title: About this template
+Slug: template-info
+Date: 2024-02-12 00:00:00
+Category: Pelican
+Tags: Themes
+Summary: This is a port to Pelican of the [HTML5 UP template Hyperspace](https://html5up.net/hyperspace) by [Trinora Software, Ltd.](https://trinora.software). Want to know more? Read this article!
+
+This is a port to Pelican of the [HTML5 UP template Hyperspace](https://html5up.net/hyperspace) by [Trinora Software, Ltd.](https://trinora.software). Licensed under the under the Creative Commons Attribution 3.0 license. Please keep all attribution notices in place.
 
 ## Theme Features
 

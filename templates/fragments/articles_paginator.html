@@ -1,7 +1,7 @@
 {% if articles_page.has_previous() %}
-    <a class="button" href="{{ SITEURL }}/{{ articles_paginator.page(articles_page.previous_page_number()).url }}">Previous</a>
+    <a class="button" href="{{ SITEURL }}/{{ articles_paginator.page(articles_page.previous_page_number()).url }}">{{ THEME_LANG_PREVIOUS|default('Previous') }}</a>
 {% else %}
-    <a class="button disabled" href="#">Previous</a>
+    <a class="button disabled" href="#">{{ THEME_LANG_PREVIOUS|default('Previous') }}</a>
 {% endif %}
 {% for p in articles_paginator.page_range %}
     {% if articles_page.number == p %}
@@ -11,7 +11,7 @@
     {% endif %}
 {% endfor %}
 {% if articles_page.has_next() %}
-    <a class="button" href="{{ SITEURL }}/{{ articles_paginator.page(articles_page.next_page_number()).url }}">Next</a>
+    <a class="button" href="{{ SITEURL }}/{{ articles_paginator.page(articles_page.next_page_number()).url }}">{{ THEME_LANG_NEXT|default('Next') }}</a>
 {% else %}
-    <a class="button disabled" href="#">Next</a>
+    <a class="button disabled" href="#">{{ THEME_LANG_NEXT|default('Next') }}</a>
 {% endif %}

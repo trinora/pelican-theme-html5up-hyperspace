@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ category.name }}{% endblock %}
+{% block title %}{{ THEME_LANG_CATEGORY_PAGE|default('%s')|format(category) }}{% endblock %}
 
 {% block content %}
 
@@ -15,9 +15,9 @@
 	<div id="wrapper">
         <section id="main" class="wrapper">
             <div class="inner">
-                <h1>{{ category.name }}</h1>
+                <h1>{{ THEME_LANG_CATEGORY_PAGE|default('%s')|format(category) }}</h1>
                 <ul class="actions">
-                    <li><a class="button" href="{{ SITEURL }}/{{ CATEGORIES_SAVE_AS }}">See all categories</a></li>
+                    <li><a class="button" href="{{ SITEURL }}/{{ CATEGORIES_SAVE_AS }}">{{ THEME_LANG_SEE_ALL_CATEGORIES|default('See all categories') }}</a></li>
                 </ul>
             </div>
         </section>

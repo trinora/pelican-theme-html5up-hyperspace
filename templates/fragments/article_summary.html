@@ -5,11 +5,13 @@
     <div class="inner">
         <header>
             <h2>{{ article.title }}</h2>
-            <p style="font-size: 0.9em">Written by <a href="{{ SITEURL }}/{{ article.author.url}}">{{ article.author }}</a> on {{ article.locale_date }}</p>
+            <p style="font-size: 0.9em">
+                {{ THEME_LANG_ARTICLE_SUMMARY|default('Written by <a href="%s">%s</a> on %s')|format(SITEURL + "/" + article.author.url, article.author, article.locale_date) }}
+            </p>
         </header>
         {{ article.summary }}
         <ul class="actions">
-            <li><a href="{{ SITEURL }}/{{ article.url }}" class="button">Read more</a></li>
+            <li><a href="{{ SITEURL }}/{{ article.url }}" class="button">{{ THEME_LANG_READMORE|default('Read more') }}</a></li>
         </ul>
     </div>
 </div>

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ tag }}{% endblock %}
+{% block title %}{{ THEME_LANG_TAG_PAGE|default('Articles tagged %s')|format(tag) }}{% endblock %}
 
 {% block content %}
 
@@ -15,9 +15,9 @@
 	<div id="wrapper">
         <section id="main" class="wrapper">
             <div class="inner">
-                <h1>Articles tagged {{ tag }}</h1>
+                <h1>{{ THEME_LANG_TAG_PAGE|default('Articles tagged %s')|format(tag) }}</h1>
                 <ul class="actions">
-                    <li><a class="button" href="{{ SITEURL }}/{{ TAGS_SAVE_AS }}">See all tags</a></li>
+                    <li><a class="button" href="{{ SITEURL }}/{{ TAGS_SAVE_AS }}">{{ THEME_LANG_SEE_ALL_TAGS|default('See all tags') }}</a></li>
                 </ul>
             </div>
         </section>

@@ -9,9 +9,9 @@
         </div>
         {% if not THEME_HIDE_ATTRIBUTION|default(false) %}
             <ul class="menu">
-                <li>&copy; {{ SITENAME }}</li>
-                <li>Design by <a href="https://html5up.net" target="_blank">HTML5 UP</a> &amp; <a href="https://github.com/trinora" target="_blank">Trinora</a></li>
-                <li>Powered by <a href="https://getpelican.com/" target="_blank">Pelican</a></li>
+                <li>{{ THEME_LANG_COPYRIGHT|default("&copy; %s")|format(SITENAME) }}</li>
+                <li>{{ THEME_LANG_DESIGN_BY|default("Design by") }} <a href="https://html5up.net" target="_blank">HTML5 UP</a> &amp; <a href="https://github.com/trinora" target="_blank">Trinora</a></li>
+                <li>{{ THEME_LANG_POWERED_BY|default("Powered by") }} <a href="https://getpelican.com/" target="_blank">Pelican</a></li>
             </ul>
         {% endif %}
     </div>

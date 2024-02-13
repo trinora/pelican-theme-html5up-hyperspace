@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}All Articles{% endblock %}
+{% block title %}{{ THEME_LANG_ARCHIVES_PAGE|default('All Articles') }}{% endblock %}
 
 {% block content %}
 
@@ -15,7 +15,7 @@
 	<div id="wrapper">
         <section id="main" class="wrapper">
             <div class="inner">
-                <h1>All Articles</h1>
+                <h1>{{ THEME_LANG_ARCHIVES_PAGE|default('All Articles') }}</h1>
             </div>
         </section>
         <section id="latest_article" class="wrapper style2 spotlights">
@@ -28,15 +28,15 @@
         {% if dates|count > 1 %}
             <section id="article_history" class="wrapper style2-alt">
                 <div class="inner">
-                    <h2>Older Articles</h2>
+                    <h2>{{ THEME_LANG_ARTICLES_OLDER|default('Older Articles') }}</h2>
                     <div class="table-wrapper">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Title</th>
-                                    <th>Date</th>
-                                    <th>Author</th>
-                                    <th>Category</th>
+                                    <th>{{ THEME_LANG_TITLE|default('Title') }}</th>
+                                    <th>{{ THEME_LANG_DATE|default('Date') }}</th>
+                                    <th>{{ THEME_LANG_AUTHOR|default('Author') }}</th>
+                                    <th>{{ THEME_LANG_CATEGORY|default('Category') }}</th>
                                 </tr>
                             </thead>
                             <tbody>

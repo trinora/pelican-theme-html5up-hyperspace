@@ -18,11 +18,11 @@
                 <h1 class="major">{{ article.title }}</h1>
                 <div class="row">
                     <div class="col-3">
-                        <strong>Published on</strong><br>
+                        <strong>{{ THEME_LANG_PUBLISHED_ON|default('Published on') }}</strong><br>
                         {{ article.locale_date }}
                     </div>
                     <div class="{% if article.translations %}col-3{% else %}col-4{% endif %}">
-                        <strong>Written by</strong><br>
+                        <strong>{{ THEME_LANG_WRITTEN_BY|default('Written by') }}</strong><br>
                         <ul>
                             {% for a in article.authors %}
                                 <li><a href="{{ SITEURL }}/{{ a.url }}">{{ a.name }}</a></li>
@@ -30,7 +30,7 @@
                         </ul>
                     </div>
                     <div class="{% if article.translations %}col-3{% else %}col-5{% endif %}">
-                        <strong>Filled under</strong>
+                        <strong>{{ THEME_LANG_FILLED_UNDER|default('Filled under') }}</strong>
                         <ul>
                             {% if article.category %}
                                 <li><a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category.name }}</a></li>
@@ -42,7 +42,7 @@
                     </div>
                     {% if article.translations %}
                     <div class="col-3">
-                        <strong>Translations</strong><br>
+                        <strong>{{ THEME_LANG_TRANSLATIONS|default('Translations') }}</strong><br>
                         <ul>
                             {% for t in article.translations %}
                                 <li><a href="{{ SITEURL }}/{{ t.url }}">{{ t.lang }}</a></li>

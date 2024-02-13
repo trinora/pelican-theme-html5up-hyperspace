@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}All Tags{% endblock %}
+{% block title %}{{ THEME_LANG_TAGS_PAGE|default('All Tags') }}{% endblock %}
 
 {% block content %}
 
@@ -15,7 +15,7 @@
 	<div id="wrapper">
         <section id="main" class="wrapper">
             <div class="inner">
-                <h1>All Tags</h1>
+                <h1>{{ THEME_LANG_TAGS_PAGE|default('All Tags') }}</h1>
             </div>
         </section>
         <section id="tags" class="wrapper style2">

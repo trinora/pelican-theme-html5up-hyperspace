@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ author }}{% endblock %}
+{% block title %}{{ THEME_LANG_AUTHOR_PAGE|default('Articles by %s')|format(author) }}{% endblock %}
 
 {% block content %}
 
@@ -15,9 +15,9 @@
 	<div id="wrapper">
         <section id="main" class="wrapper">
             <div class="inner">
-                <h1>Articles by {{ author }}</h1>
+                <h1>{{ THEME_LANG_AUTHOR_PAGE|default('Articles by %s')|format(author) }}</h1>
                 <ul class="actions">
-                    <li><a class="button" href="{{ SITEURL }}/{{ AUTHORS_SAVE_AS }}">See all authors</a></li>
+                    <li><a class="button" href="{{ SITEURL }}/{{ AUTHORS_SAVE_AS }}">{{ THEME_LANG_SEE_ALL_AUTHORS|default('See all authors') }}</a></li>
                 </ul>
             </div>
         </section>

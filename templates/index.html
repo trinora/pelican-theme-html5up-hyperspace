@@ -29,7 +29,6 @@
             <section id="content" class="wrapper style2 spotlights">
                 {% block content_title %}
                 {% endblock %}
-
                 {% for article in articles_page.object_list %}
                     <section>
                         {% include "fragments/article_summary.html" %}
@@ -37,13 +36,13 @@
                 {% endfor %}
             </section><!-- #content -->
         {% endif %}
-        {% if articles_page.has_other_pages and THEME_HOMEPAGE_ARTICLES_PAGINATION is defined %}
+        {% if THEME_HOMEPAGE_ARTICLES_PAGINATION is defined and articles_page.has_other_pages %}
             <section id="paginator" class="wrapper style1">
                 <div class="inner">
                     {% if THEME_HOMEPAGE_ARTICLES_PAGINATION == "paginator"%}
                         {% include "fragments/articles_paginator.html" %}
                     {% else %}
-                        <a class="button" href="{{ THEME_HOMEPAGE_ARTICLES_PAGINATION }}">View more articles</a>
+                        <a class="button" href="{{ THEME_HOMEPAGE_ARTICLES_PAGINATION }}">{{ THEME_LANG_VIEW_MORE_ARTICLES|default('View more articles') }}</a>
                     {% endif %}
                 </div>
             </section>
