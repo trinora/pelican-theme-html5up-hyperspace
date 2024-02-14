@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>À propos de ce modèle | Example Site</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="./theme/css/main.css" />
+		<noscript><link rel="stylesheet" href="./theme/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+<!-- Header -->
+    <header id="header">
+        <a href="./" class="title">Example Site</a>
+        <nav>
+<ul>
+            <li><a href="./pages/test-page-1.html">Test Page 1</a></li>
+            <li><a href="./category/lipsum.html">Lipsum</a></li>
+            <li class="active"><a href="./category/pelican.html">Pelican</a></li>
+</ul>        </nav>
+    </header>
+    
+	<div id="wrapper">
+        <section id="article_head" class="wrapper style1-alt">
+            <div class="inner">
+                <h1 class="major">À propos de ce modèle</h1>
+                <div class="row">
+                    <div class="col-3">
+                        <strong>Published on</strong><br>
+                        Mon 12 February 2024
+                    </div>
+                    <div class="col-3">
+                        <strong>Written by</strong><br>
+                        <ul>
+                                <li><a href="./author/trinora-software-ltd.html">Trinora Software, Ltd.</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-3">
+                        <strong>Filled under</strong>
+                        <ul>
+                                <li><a href="./category/pelican.html">Pelican</a></li>
+                                <li><a class="small" href="./tag/themes.html">Themes</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-3">
+                        <strong>Translations</strong><br>
+                        <ul>
+                                <li><a href="./template-info.html">en</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="article_content" class="wrapper style2">
+            <div class="inner">
+                <p>Il s'agit d'un portage vers Pelican du <a href="https://html5up.net/hyperspace">modèle HTML5 UP Hyperspace</a> par <a href="https://trinora.software">Trinora Software, Ltd.</a>. Sous licence Creative Commons Attribution 3.0. Veuillez conserver tous les avis d’attribution en place.</p>
+<h2>Fonctionnalités du thème</h2>
+<h3>Sections de la page d'accueil</h3>
+<p>N'importe quelle page peut être ajoutée en tant que section à la page d'accueil. Ces sections apparaîtront sous les articles (si activées, voir <code>THEME_HOMEPAGE_INCL_ARTICLES</code>) et avant le pied de page. Ajoutez les métadonnées suivantes pour les pages applicables :</p>
+<ul>
+<li>
+<p>HomePage_Sort : valeur numérique (en fait une chaîne, mais destinée à être numérique) donnant l'ordre de tri de la section sur la page. Cela ne prend effet que si plusieurs pages sont incluses en tant que section de page d'accueil.</p>
+</li>
+<li>
+<p>HomePage_Style : nom de classe pour le style CSS. Voir les règles <code>main.css</code> pour les classes <code>style ?</code>. Par exemple, <code>style1</code>, <code>style1-alt</code>, <code>style2</code>, etc.</p>
+</li>
+</ul>
+<h3>Tri des pages dans le menu de navigation</h3>
+<p>Ajoutez la clé <code>Menu_Sort</code> aux métadonnées de votre page pour contrôler l'ordre de tri de la page dans le menu de navigation. Cela ne prend effet que si <code>THEME_MENU_ONLY_MENUITEMS</code> est False et <code>DISPLAY_PAGES_ON_MENU</code> est True et que plus d'une page apparaît dans le menu.</p>
+<h3>Image de l'article</h3>
+<p>Ajoutez la clé « Couverture » aux métadonnées de votre article avec un nom de fichier image comme valeur pour que cette image apparaisse dans les listes d'articles sous forme de vignette et d'image d'arrière-plan plein écran dans l'article lui-même.</p>
+<h2>Paramètres spécifiques au thème</h2>
+<p>Voici les paramètres qui modifient le comportement de ce thème. Ces valeurs doivent être définies dans votre fichier <code>pelicanconf.py</code>.</p>
+<h3>THEME_HIDE_ATTRIBUTION</h3>
+<p><em>Booléen, False par défaut</em></p>
+<p>S'il est défini sur True, masquera l'avis d'attribution dans le pied de page. Veuillez vous assurer que vous répondez aux exigences de licence spécifiées dans le fichier README.md avant de définir cette valeur sur True !</p>
+<h3>THEME_MENU_ONLY_MENUITEMS</h3>
+<p><em>Booléen, False par défaut</em></p>
+<p>S'il est défini sur True, n'affichera que les liens dans le paramètre de configuration <code>MENUITEMS</code> dans le menu de navigation du site Web et ignorera les paramètres <code>DISPLAY_PAGES_ON_MENU</code> et <code>DISPLAY_CATEGORIES_ON_MENU</code>. S'il est défini sur False, le comportement du menu standard de Pelican sera utilisé.</p>
+<h3>THEME_HOMEPAGE_INTRO_PAGE</h3>
+<p><em>Slug de page, non défini par défaut</em></p>
+<p>S'il est défini sur un slug de page, le contenu de la page spécifiée sera rendu dans la section d'introduction de la page d'accueil, remplaçant l'intro par défaut. S’il n’est pas défini, défini sur une chaîne vide ou si le slug de page n’est pas trouvé, la section d’introduction par défaut sera utilisée. La section d'introduction par défaut affiche le nom du site, le sous-titre du site et un lien pour faire défiler la page d'accueil jusqu'à la section des articles.</p>
+<h3>THEME_HOMEPAGE_INCL_ARTICLES</h3>
+<p><em>Booléen, True par défaut</em></p>
+<p>S'il est défini sur True, les articles seront affichés sur la page d'accueil. Définissez sur False pour ne pas afficher les articles sur la page d'accueil.</p>
+<h3>THEME_HOMEPAGE_ARTICLES_PAGINATION</h3>
+<p><em>Chaîne, non définie par défaut</em></p>
+<p>Lorsque les articles sont affichés sur la page d'accueil (c'est-à-dire que <code>THEME_HOMEPAGE_INCL_ARTICLES</code> est défini sur True) et que la pagination est requise, si elle est définie sur "pagination", les contrôles de pagination seront affichés sur la page d'accueil. Toute autre chaîne sera interprétée comme la destination d'un lien « Afficher plus d'articles ». Si elle n’est pas définie, la pagination ne sera pas affichée sur la page d’accueil.</p>
+<h3>THEME_FOOTER_PAGE</h3>
+<p><em>Slug de page, non défini par défaut</em></p>
+<p>S'il est défini sur un slug de page, le contenu de la page spécifiée sera rendu dans le pied de page, remplaçant le pied de page par défaut. S’il n’est pas défini, s’il est défini sur une chaîne vide ou si le slug de page n’est pas trouvé, le pied de page par défaut sera utilisé. Le pied de page par défaut affiche les listes de liens « LIENS » et « SOCIAL ».</p>
+<h3>THEME_LANG_*</h3>
+<p><strong>Chaîne de langue, diverses valeurs par défaut</strong></p>
+<p>Pour prendre en charge la traduction du thème sans avoir besoin de plugins supplémentaires, il existe divers paramètres avec le préfixe « THEME_LANG_ » qui permettent de remplacer le texte anglais dans le thème. Cela inclut les titres et en-têtes de page, les étiquettes de boutons, etc. Vous pouvez inspecter les modèles de thème pour voir tous ces paramètres et comment ils sont utilisés. Certains paramètres prennent en charge les espaces réservés avec le filtre <code>format()</code> de Jinja.</p>
+<h2>Suppression de l'attribution</h2>
+<p>La licence Creative Commons Attribution 3.0 exige que tous les avis d'attribution soient laissés en place. L'auteur original dispose d'une offre de licence commerciale qui permet de supprimer la mention d'attribution. Veuillez consulter <a href="https://pixelarity.com/">Pixelarity</a> de l'auteur original et acheter un abonnement. Une fois qu'une licence commerciale a été achetée, l'attribution peut être supprimée avec le paramètre « THEME_HIDE_ATTRIBUTION » sur True.</p>
+<h2>FAIRE</h2>
+<ol>
+<li>Ajouter la prise en charge des images et des biographies des auteurs ?</li>
+<li>Besoin d'implémenter le modèle « period_archives.html ».</li>
+<li>Styles CSS en ligne à nettoyer.</li>
+<li>Quelques autres styles CSS laids à embellir.</li>
+<li>Ajouter une fonctionnalité pour modifier la palette de couleurs du thème à partir des paramètres ?</li>
+<li>Certaines pages de liste d'articles (au moins les balises, probablement d'autres) ont besoin d'une meilleure mise en page.</li>
+</ol>
+<h2>Fichier Lisez-moi original (à partir de HTML5 UP)</h2>
+<blockquote>
+<p>So I've had the wireframe for this particular design kicking around for some time, but with all
+the other interesting (and in some cases, semi-secret) projects I've been working on it took me
+a little while to get to actually designing and coding it. Fortunately, things have eased up
+enough for me to finaly get around to it, so I'm happy to introduce Hyperspace: a fun, blocky,
+one-page design with a lot of color, a bit of animation, and an additional "generic" page template
+(because hey, even one-page sites usually need an interior page or two). Hope you dig it :)</p>
+<p>Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
+you can use for pretty much whatever.</p>
+<p>(* = not included)</p>
+<p>AJ
+aj@lkn.io | @ajlkn</p>
+</blockquote>
+<h3>Crédits</h3>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="n">Modèle</span><span class="w"> </span><span class="n">HTML</span><span class="w"> </span><span class="n">original</span><span class="w"> </span><span class="p">:</span>
+<span class="w">    </span><span class="n">AJ</span><span class="w"> </span><span class="p">(</span><span class="n">aj</span><span class="err">@</span><span class="n">lkn</span><span class="o">.</span><span class="n">io</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="err">@</span><span class="n">ajlkn</span><span class="p">)</span>
+<span class="w">    </span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">html5up</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">hyperspace</span>
+
+<span class="n">Images</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">démonstration</span><span class="w"> </span><span class="p">:</span>
+<span class="w">    </span><span class="n">Unsplash</span><span class="w"> </span><span class="p">(</span><span class="n">unsplash</span><span class="o">.</span><span class="n">com</span><span class="p">)</span>
+
+<span class="n">Icônes</span><span class="p">:</span>
+<span class="w">    </span><span class="n">Font</span><span class="w"> </span><span class="n">Awesome</span><span class="w"> </span><span class="p">(</span><span class="n">fontawesome</span><span class="o">.</span><span class="n">io</span><span class="p">)</span>
+
+<span class="n">Autre</span><span class="p">:</span>
+<span class="w">    </span><span class="n">jQuery</span><span class="w"> </span><span class="p">(</span><span class="n">jquery</span><span class="o">.</span><span class="n">com</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Scrollex</span><span class="w"> </span><span class="p">(</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ajlkn</span><span class="o">/</span><span class="n">jquery</span><span class="o">.</span><span class="n">scrollex</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Responsive</span><span class="w"> </span><span class="n">Tools</span><span class="w"> </span><span class="p">(</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ajlkn</span><span class="o">/</span><span class="n">responsive</span><span class="o">-</span><span class="n">tools</span><span class="p">)</span>
+</code></pre></div>
+            </div>
+        </section>
+        <section id="article_links" class="wrapper style1">
+            <div class="inner">
+<div class="row">
+        <div class="col-3">
+            <h2><a href="./categories.html">Categories</a></h2>
+            <ul class="alt">
+                <li><a href="./category/lipsum.html">Lipsum</a> (8)</li>
+                <li><a href="./category/pelican.html">Pelican</a> (1)</li>
+            </ul>
+        </div>
+    
+        <div class="col-3 off-1">
+            <h2><a href="./tags.html">Tags</a></h2>
+            <ul class="alt">
+                <li><a href="./tag/baboii.html">Baboii</a> (1)</li>
+                <li><a href="./tag/clytie.html">Clytie</a> (1)</li>
+                <li><a href="./tag/coniunx.html">Coniunx</a> (1)</li>
+                <li><a href="./tag/daa.html">Daa</a> (1)</li>
+                <li><a href="./tag/dedit.html">Dedit</a> (1)</li>
+                <li><a href="./tag/deos.html">Deos</a> (1)</li>
+                <li><a href="./tag/equorum.html">Equorum</a> (1)</li>
+                <li><a href="./tag/expetit.html">Expetit</a> (1)</li>
+                <li><a href="./tag/his.html">His</a> (1)</li>
+                <li><a href="./tag/ipsa.html">Ipsa</a> (1)</li>
+                <li><a href="./tag/locum.html">Locum</a> (1)</li>
+                <li><a href="./tag/lorem.html">Lorem</a> (5)</li>
+                <li><a href="./tag/markdownum.html">Markdownum</a> (1)</li>
+                <li><a href="./tag/marte.html">Marte</a> (1)</li>
+                <li><a href="./tag/obstantis.html">Obstantis</a> (1)</li>
+                <li><a href="./tag/peremptam.html">Peremptam</a> (1)</li>
+                <li><a href="./tag/piumque.html">Piumque</a> (1)</li>
+                <li><a href="./tag/pocula.html">Pocula</a> (1)</li>
+                <li><a href="./tag/quibus.html">Quibus</a> (1)</li>
+                <li><a href="./tag/themes.html">Themes</a> (1)</li>
+            </ul>
+        </div>
+
+        <div class="col-3 off-1">
+            <h2><a href="./authors.html">Authors</a></h2>
+            <ul class="alt">
+                <li><a href="./author/example-author.html">Example Author</a> (8)</li>
+                <li><a href="./author/trinora-software-ltd.html">Trinora Software, Ltd.</a> (1)</li>
+            </ul>
+        </div>
+</div>            </div>
+        </section>
+    </div>
+
+<footer id="footer" class="wrapper style1-alt">
+    <div class="inner">
+        <div class="row">
+<div class="col-6">
+    <h3>Links</h3>
+    <ul class="alt">
+        <li><a href="https://getpelican.com/">Pelican</a></li>
+        <li><a href="https://www.python.org/">Python.org</a></li>
+        <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+        <li><a href="#">You can modify those links in your config file</a></li>
+    </ul>
+</div>
+    <div class="col-4 off-2">
+        <h3>Social</h3>
+        <ul class="alt">
+            <li><a href="#">You can add links in your config file</a></li>
+            <li><a href="#">Another social link</a></li>
+        </ul>
+    </div>
+        </div>
+            <ul class="menu">
+                <li>&copy; Example Site</li>
+                <li>Design by <a href="https://html5up.net" target="_blank">HTML5 UP</a> &amp; <a href="https://github.com/trinora" target="_blank">Trinora</a></li>
+                <li>Powered by <a href="https://getpelican.com/" target="_blank">Pelican</a></li>
+            </ul>
+    </div>
+</footer>
+		<!-- Scripts -->
+		<script src="./theme/js/jquery.min.js"></script>
+		<script src="./theme/js/jquery.scrollex.min.js"></script>
+		<script src="./theme/js/jquery.scrolly.min.js"></script>
+		<script src="./theme/js/browser.min.js"></script>
+		<script src="./theme/js/breakpoints.min.js"></script>
+		<script src="./theme/js/util.js"></script>
+		<script src="./theme/js/main.js"></script>
+	</body>
+</html>
