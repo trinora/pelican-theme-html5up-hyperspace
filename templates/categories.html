@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ THEME_LANG_CATEGORIES_PAGE|default('All Categories') }}{% endblock %}
+{% block title %}{{ THEME_LANG_CATEGORIES_PAGE|default('Categories') }} | {{ SITENAME }}{% endblock %}
 
 {% block content %}
 
@@ -15,7 +15,7 @@
 	<div id="wrapper">
         <section id="main" class="wrapper">
             <div class="inner">
-                <h1>{{ THEME_LANG_CATEGORIES_PAGE|default('All Categories') }}</h1>
+                <h1>{{ THEME_LANG_CATEGORIES_PAGE|default('Categories') }}</h1>
             </div>
         </section>
         <section id="categories" class="wrapper style2">

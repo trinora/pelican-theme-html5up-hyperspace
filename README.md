@@ -2,6 +2,8 @@ Hyperspace by HTML5 UP
 ----------------------
 Originally developed by [HTML5 UP](https://html5up.net/hyperspace). Ported to Pelican by [Trinora Software, Ltd.](https://trinora.software). Licensed under the under the Creative Commons Attribution 3.0 license. Please keep all attribution notices in place.
 
+Repository for this theme is hosted by Github: https://github.com/trinora/pelican-theme-html5up-hyperspace. A demo of this theme is available at: https://trinora.github.io/pelican-theme-html5up-hyperspace/.
+
 ## Theme Features
 
 ### Home Page Sections

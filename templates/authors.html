@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ THEME_LANG_AUTHORS_PAGE|default('All Authors') }}{% endblock %}
+{% block title %}{{ THEME_LANG_AUTHORS_PAGE|default('Authors') }} | {{ SITENAME }}{% endblock %}
 
 {% block content %}
 
@@ -15,7 +15,7 @@
 	<div id="wrapper">
         <section id="main" class="wrapper">
             <div class="inner">
-                <h1>{{ THEME_LANG_AUTHORS_PAGE|default('All Authors') }}</h1>
+                <h1>{{ THEME_LANG_AUTHORS_PAGE|default('Authors') }}</h1>
             </div>
         </section>
         <section id="authors" class="wrapper style2">

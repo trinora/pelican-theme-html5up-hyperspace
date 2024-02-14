@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ THEME_LANG_TAG_PAGE|default('Articles tagged %s')|format(tag) }}{% endblock %}
+{% block title %}{{ THEME_LANG_TAG_PAGE|default('Articles tagged %s')|format(tag) }} | {{ SITENAME }}{% endblock %}
 
 {% block content %}
 

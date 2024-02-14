@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ THEME_LANG_ARCHIVES_PAGE|default('All Articles') }}{% endblock %}
+{% block title %}{{ THEME_LANG_ARCHIVES_PAGE|default('Articles') }} | {{ SITENAME }}{% endblock %}
 
 {% block content %}
 
@@ -15,7 +15,7 @@
 	<div id="wrapper">
         <section id="main" class="wrapper">
             <div class="inner">
-                <h1>{{ THEME_LANG_ARCHIVES_PAGE|default('All Articles') }}</h1>
+                <h1>{{ THEME_LANG_ARCHIVES_PAGE|default('Articles') }}</h1>
             </div>
         </section>
         <section id="latest_article" class="wrapper style2 spotlights">
