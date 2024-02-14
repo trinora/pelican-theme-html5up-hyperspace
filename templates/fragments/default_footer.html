@@ -1,4 +1,4 @@
-{% if LINKS is defined %}
+{% if LINKS %}
 <div class="col-6">
     <h3>{{ LINKS_WIDGET_NAME|default('Links') }}</h3>
     <ul class="alt">
@@ -8,7 +8,7 @@
     </ul>
 </div>
 {% endif %}
-{% if SOCIAL is defined %}
+{% if SOCIAL %}
     <div class="col-4{% if LINKS is defined %} off-2{% endif %}">
         <h3>{{ SOCIAL_WIDGET_NAME|default('Social') }}</h3>
         <ul class="alt">
