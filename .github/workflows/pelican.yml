@@ -23,6 +23,8 @@ jobs:
       - uses: trinora/pelican-build-action@main
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          PELICAN_CONFIG_FILE: "example/pelicanconf.py"
+          PELICAN_CONTENT_DIR: "example/content"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: output
