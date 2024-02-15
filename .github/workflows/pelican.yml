@@ -1,8 +1,6 @@
 name: Pelican site build and deploy
 
 on:
-  # Trigger the workflow on push or pull request,
-  # but only for the master branch
   push:
     branches:
       - main
@@ -17,9 +15,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: nelsonjchen/gh-pages-pelican-action@0.2.0
-      env:
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        PELICAN_CONTENT_FOLDER: "example/content"
-        PELICAN_CONFIG_FILE: "example/pelicanconf.py"
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - id: pages
+        uses: actions/configure-pages@v4
+      - uses: trinora/pelican-build-action@main
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: output
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
