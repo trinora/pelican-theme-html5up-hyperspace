@@ -36,7 +36,7 @@
                 {% endfor %}
             </section><!-- #content -->
         {% endif %}
-        {% if THEME_HOMEPAGE_ARTICLES_PAGINATION is defined and articles_page.has_other_pages %}
+        {% if THEME_HOMEPAGE_ARTICLES_PAGINATION is defined and articles_page.has_other_pages() %}
             <section id="paginator" class="wrapper style1">
                 <div class="inner">
                     {% if THEME_HOMEPAGE_ARTICLES_PAGINATION == "paginator"%}

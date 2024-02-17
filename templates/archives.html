@@ -18,13 +18,15 @@
                 <h1>{{ THEME_LANG_ARCHIVES_PAGE|default('Articles') }}</h1>
             </div>
         </section>
-        <section id="latest_article" class="wrapper style2 spotlights">
-            {% with article = dates|first %}
-                <section>
-                    {% include "fragments/article_summary.html" %}
-                </section>
-            {% endwith %}
-        </section><!-- #content -->
+        {% if dates %}
+            <section id="latest_article" class="wrapper style2 spotlights">
+                {% with article = dates|first %}
+                    <section>
+                        {% include "fragments/article_summary.html" %}
+                    </section>
+                {% endwith %}
+            </section><!-- #content -->
+        {% endif %}
         {% if dates|count > 1 %}
             <section id="article_history" class="wrapper style2-alt">
                 <div class="inner">
