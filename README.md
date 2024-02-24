@@ -9,7 +9,7 @@ Repository for this theme is hosted by Github: https://github.com/trinora/pelica
 ### Home Page Sections
 Any page can be added as a section to the homepage. These sections will appear underneath the articles (if enabled, see `THEME_HOMEPAGE_INCL_ARTICLES`) and before the footer. Add the following metadata for the applicable pages:
 
-* HomePage_Sort: Numeric (actually a string, but intended to be a numeric) value giving the sort order of the section on the page. This only takes effect if more than one page is included as a homepage section.
+* HomePage_Sort: Numeric value giving the sort order of the section on the page. This only takes effect if more than one page is included as a homepage section. Values less than 50 will appear before any homepage articles and values of 50 or over will appear after the homepage articles.
 
 * HomePage_Style: Class name for CSS styling. See `main.css` rules for `style?` classes. E.g., `style1`, `style1-alt`, `style2`, etc.
 

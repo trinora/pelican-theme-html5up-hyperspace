@@ -36,6 +36,16 @@
                 {% endfor %}
             </section><!-- #content -->
         {% endif %}
+        {% set all_pages = pages + hidden_pages %}
+        {% for p in all_pages|selectattr("metadata.homepage_sort")|sort(attribute="metadata.homepage_sort") %}
+            {% if p.metadata.homepage_sort|int < 50 %}
+                <section id="{{ p.slug }}" class="wrapper{% if p.metadata.get("homepage_style", "") %} {{ p.metadata.homepage_style }}{% endif %}">
+                    <div class="inner">
+                        {{ p.content }}
+                    </div>
+                </section>
+            {% endif %}
+        {% endfor %}
         {% if THEME_HOMEPAGE_ARTICLES_PAGINATION is defined and articles_page.has_other_pages() %}
             <section id="paginator" class="wrapper style1">
                 <div class="inner">
@@ -47,12 +57,14 @@
                 </div>
             </section>
         {% endif %}
-        {% for p in pages|selectattr("metadata.homepage_sort")|sort(attribute="metadata.homepage_sort") %}
-            <section id="{{ p.slug }}" class="wrapper{% if p.metadata.get("homepage_style", "") %} {{ p.metadata.homepage_style }}{% endif %}">
-                <div class="inner">
-                    {{ p.content }}
-                </div>
-            </section>
+        {% for p in all_pages|selectattr("metadata.homepage_sort")|sort(attribute="metadata.homepage_sort") %}
+            {% if p.metadata.homepage_sort|int >= 50 %}
+                <section id="{{ p.slug }}" class="wrapper{% if p.metadata.get("homepage_style", "") %} {{ p.metadata.homepage_style }}{% endif %}">
+                    <div class="inner">
+                        {{ p.content }}
+                    </div>
+                </section>
+            {% endif %}
         {% endfor %}
     </div>
     
