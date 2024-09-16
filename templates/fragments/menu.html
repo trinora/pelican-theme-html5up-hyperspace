@@ -1,17 +1,17 @@
 <ul>
     {% if MENUITEMS is defined %}
         {% for menu_title, menu_link in MENUITEMS %}
-            <li{% if page is defined and menu_link == page.url %} class="active"{% endif %}><a href="{{ menu_link }}">{{ menu_title }}</a></li>
+            <li><a{% if page is defined and menu_link == page.url or page is not defined and menu_link == "" %} class="active"{% endif %} href="{{ SITEURL }}/{{ menu_link }}">{{ menu_title }}</a></li>
         {% endfor %}
     {% endif %}
     {% if not THEME_MENU_ONLY_MENUITEMS|default(false) and DISPLAY_PAGES_ON_MENU %}
         {% for p in pages|sort(attribute="metadata.menu_sort,title") %}
-            <li{% if page is defined and p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+            <li><a{% if page is defined and p == page %} class="active"{% endif %} href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
         {% endfor %}
     {% endif %}
     {% if not THEME_MENU_ONLY_MENUITEMS|default(false) and DISPLAY_CATEGORIES_ON_MENU %}
         {% for c, _ in categories|sort(attribute=name) %}
-            <li{% if category is defined and c == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ c.url }}">{{ c.name }}</a></li>
+            <li><a{% if category is defined and c == category %} class="active"{% endif %} href="{{ SITEURL }}/{{ c.url }}">{{ c.name }}</a></li>
         {% endfor %}
     {% endif %}
 </ul>
