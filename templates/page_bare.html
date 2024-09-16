@@ -3,18 +3,18 @@
 {% block title %}{{ page.title }} | {{ SITENAME }}{% endblock %}
 
 {% block content %}
-
-<!-- Header -->
-    <header id="header">
-        <a href="{{ SITEURL }}/" class="title">{{ SITENAME }}</a>
-        <nav>
-            {% include "fragments/menu.html" %}
-        </nav>
-    </header>
-    
+    <section id="sidebar">
+        <div class="inner">
+            <nav>
+                {% include "fragments/menu.html" %}
+            </nav>
+        </div>
+    </section>
 	<div id="wrapper">
+        <header id="header">
+            <a href="{{ SITEURL }}/" class="title">{{ SITENAME }}</a>
+        </header>
         {{ page.content }}
     </div>
-
     {% include "fragments/footer.html" %}
 {% endblock %}

@@ -14,14 +14,30 @@
         This is `markdown` flavoured text!
         {% endcall %}
 #}
-{% macro page_section(css_class="style1", title="", id="") -%}
+{% macro page_section(css_class="", title="", id="", has_spotlights=False) -%}
 {% set caller_ = caller() %}
-<section {% if id %}id="{{ id }}"{% endif %} class="wrapper {{ css_class }}">
+<section {% if id %}id="{{ id }}"{% endif %} class="wrapper {{ css_class }} {% if has_spotlights %}spotlights{% endif %}">
+    {% if not has_spotlights %}
     <div class="inner">
         {% if title %}<h1 class="major">{{ title }}</h1>{% endif %}
         {% markdown %}{{ caller_ }}{% endmarkdown %}
     </div>
+    {% else %}
+        {{ caller_ }}
+    {% endif %}
 </section>
+{%- endmacro %}
+
+{% macro spotlight_section(image) -%}
+{% set caller_ = caller() %}
+    <section>
+        <a class="image" style="background-image: url(&quot;{{ SITEURL }}/{{ image }}&quot;); background-position: center center; cursor: pointer;"><img src="{{ SITEURL }}/{{ image }}" alt="" data-position="center center" style="display: none;"></a>
+        <div class="content">
+<div class="inner">
+{% markdown %}{{ caller_ }}{% endmarkdown %}
+</div>
+        </div>
+    </section>
 {%- endmacro %}
 
 {#
