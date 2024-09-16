@@ -1,0 +1,102 @@
+{#
+    Macro: page_section
+    Description: The original theme has instances of `section.wrapper` with a
+        child `div.inner` element. This macro creates these constructs with
+        support for markdown.
+    Arguments:
+        - css_class: CSS classes to apply to the <section> element. See `main.css` for class definitions (e.g., "style1", "style2", etc.).
+        - title: Title for this section. Will be wrapped in <h1> with `major` class.
+        - id: ID to give the <section> element.
+        - (Caller macro): Markdown text to be written within the section.
+    Example:
+        {% call page_section(css_class="style2", title="My Section", id="my_section") %}
+        ## Hello Wrold
+        This is `markdown` flavoured text!
+        {% endcall %}
+#}
+{% macro page_section(css_class="style1", title="", id="") -%}
+{% set caller_ = caller() %}
+<section {% if id %}id="{{ id }}"{% endif %} class="wrapper {{ css_class }}">
+    <div class="inner">
+        {% if title %}<h1 class="major">{{ title }}</h1>{% endif %}
+        {% markdown %}{{ caller_ }}{% endmarkdown %}
+    </div>
+</section>
+{%- endmacro %}
+
+{#
+    Macro: features_block
+    Description: Creates a features block. This is a 2-column list of
+        individual feature sections.
+    Arguments:
+        - (Caller macro): Raw content to write to the block. This should be
+            calls to the `feature_section` macro.
+    Example:
+        {% call features_block() %}
+            {% feature_section(icon="user-astronaut") %}
+            ### My Title
+            Hello world! This is `markdown` flavoured text!
+            {% endcall %}
+            {% feature_section() %}
+            ### No Icon
+            This one has no icon, but it still has **Markdown**
+            {% endcall %}
+        {% endcall %}
+#}
+{% macro features_block() -%}
+    <div class="features">
+        {{ caller() }}
+    </div>
+{%- endmacro %}
+
+{#
+    Macro: feature_section
+    Description: Creates a feature section within a features block. Feature
+        sections are the individual cells within a block. Accepts an optional
+        icon from Font Awesome (without the `fa-` prefix).
+    Arguments:
+        - (Caller macro): Markdown content to write in the feature.
+    Example: See `features_block` macro above for an example.
+#}
+{% macro feature_section(icon="") -%}
+    {% set caller_ = caller() %}
+    <section>
+        {% if icon %}
+            <span class="icon solid major fa-{{ icon }}"></span>
+        {% endif %}
+        {% markdown %}{{ caller_ }}{% endmarkdown %}
+    </section>
+{%- endmacro %}
+
+{#
+    Macro: actions_block
+    Description: Creates an actions block. This is a horizontal list of
+        button-styled links.
+    Arguments:
+        - (Caller macro): Raw content to write to the block. This should be
+            calls to the `action_item` macro.
+    Example:
+        {% call actions_block() %}
+            {{ action_item("My First Link", "/this/page") %}
+            {{ action_item("My Second Link", "https://google.com") %}
+        {% endcall %}
+#}
+{% macro actions_block() -%}
+    <ul class="actions">
+        {{ caller() }}
+    </ul>
+{%- endmacro %}
+
+{#
+    Macro: action_item
+    Description: Creates an action item within an actions block.
+    Arguments:
+        - label: Text to display in the button
+        - link: Where the button links to
+    Example: See `actions_block` macro above for an example.
+#}
+{% macro action_item(label, link) -%}
+    <li>
+        <a href="{{ link }}" class="button">{{ label }}</a>
+    </li>
+{%- endmacro %}

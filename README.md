@@ -1,10 +1,27 @@
 Hyperspace by HTML5 UP
-----------------------
+======================
 Originally developed by [HTML5 UP](https://html5up.net/hyperspace). Ported to Pelican by [Trinora Software, Ltd.](https://trinora.software). Licensed under the under the Creative Commons Attribution 3.0 license. Please keep all attribution notices in place.
 
 Repository for this theme is hosted by Github: https://github.com/trinora/pelican-theme-html5up-hyperspace. A demo of this theme is available at: https://trinora.github.io/pelican-theme-html5up-hyperspace/.
 
-## Theme Features
+### Installation
+Recommended installation is to include this Git repository as a submodule within your Pelican project's `themes/` directory.
+
+### Dependencies
+This theme requires the [jinja-markdown](https://pypi.org/project/jinja-markdown/) extension. Once installed, this extension can be configured in your `pelicanconf.py` file as such:
+
+```python
+JINJA_ENVIRONMENT = {
+    "trim_blocks": True,   # These two items are required by Pelican
+    "lstrip_blocks": True,
+    "extensions": [
+        "jinja_markdown.MarkdownExtension",
+    ]
+}
+```
+
+Theme Features
+--------------
 
 ### Home Page Sections
 Any page can be added as a section to the homepage. These sections will appear underneath the articles (if enabled, see `THEME_HOMEPAGE_INCL_ARTICLES`) and before the footer. Add the following metadata for the applicable pages:
@@ -17,9 +34,26 @@ Any page can be added as a section to the homepage. These sections will appear u
 Add the key `Menu_Sort` to your page metadata to control the sort order of the page in the navigation menu. This only takes effect if `THEME_MENU_ONLY_MENUITEMS` is False and `DISPLAY_PAGES_ON_MENU` is True and more than one page appears in the menu.
 
 ### Article Image
-Add the key `Cover` to your article metadata with an image filename as value to have this image appear in article listings as a thumbnail and as a fullscreen background image in the article itself.	
+Add the key `Cover` to your article metadata with an image filename as value to have this image appear in article listings as a thumbnail and as a fullscreen background image in the article itself.
 
-## Theme-specific Settings
+### Template Macros
+Several Jinja macros are available in `templates/macros.html` to assist in more complicated HTML structures from the theme.
+
+Macro Name      | Description
+--------------- | -----------
+page_section    | Creates a `<section>` block with an `div.inner` child tag. Requires the `jinja-markdown` extension.
+features_block  | Creates a features block (2-column wide) of title/content pairs.
+feature_section | An individual feature in a features block. With optional icon. Icons are from Font Awesome (without the `fa-` prefix).
+actions_block   | Creates an actions block (horizontal list of buttons).
+action_item     | An individual action item in an actions block.
+
+See the `templates/macros.html` file for documentation.
+
+### Colophon page
+If the site contains a hidden page (`Status: hidden`) with a slug of `colophon`, the theme will add a Colophon link in the footer.
+
+Theme-specific Settings
+-----------------------
 The following are settings that alter the behaviour of this theme. These values should be set in your `pelicanconf.py` file.
 
 ### THEME_HIDE_ATTRIBUTION

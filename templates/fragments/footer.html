@@ -12,6 +12,9 @@
                 <li>{{ THEME_LANG_COPYRIGHT|default("&copy; %s")|format(SITENAME) }}</li>
                 <li>{{ THEME_LANG_DESIGN_BY|default("Design by") }} <a href="https://html5up.net" target="_blank">HTML5 UP</a> &amp; <a href="https://github.com/trinora" target="_blank">Trinora</a></li>
                 <li>{{ THEME_LANG_POWERED_BY|default("Powered by") }} <a href="https://getpelican.com/" target="_blank">Pelican</a></li>
+                {% for p in hidden_pages if p.slug == "colophon" %}
+                    <li><a href="{{ SITEURL }}/{{ p.url }}">Colophon</a></li>
+                {% endfor %}
             </ul>
         {% endif %}
     </div>
