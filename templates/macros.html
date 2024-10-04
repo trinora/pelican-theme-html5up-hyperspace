@@ -28,10 +28,10 @@
 </section>
 {%- endmacro %}
 
-{% macro spotlight_section(image) -%}
+{% macro spotlight_section(image, link) -%}
 {% set caller_ = caller() %}
     <section>
-        <a class="image" style="background-image: url(&quot;{{ SITEURL }}/{{ image }}&quot;); background-position: center center; cursor: pointer;"><img src="{{ SITEURL }}/{{ image }}" alt="" data-position="center center" style="display: none;"></a>
+        <a class="image" {% if link %}href="{{ link }}"{% endif %} style="background-image: url(&quot;{{ SITEURL }}/{{ image }}&quot;); background-position: center center; cursor: pointer;"><img src="{{ SITEURL }}/{{ image }}" alt="" data-position="center center" style="display: none;"></a>
         <div class="content">
 <div class="inner">
 {% markdown %}{{ caller_ }}{% endmarkdown %}
