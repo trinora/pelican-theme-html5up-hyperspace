@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% set all_pages = pages + hidden_pages %}
+
 {% block content %}
     <!-- Sidebar -->
     <section id="sidebar">
@@ -15,7 +17,7 @@
         <section id="intro" class="wrapper style1 fullscreen fade-up">
             <div class="inner">
                 {% if THEME_HOMEPAGE_INTRO_PAGE|default %}
-                    {% for p in pages if p.slug == THEME_HOMEPAGE_INTRO_PAGE %}
+                    {% for p in all_pages if p.slug == THEME_HOMEPAGE_INTRO_PAGE %}
                         {{ p.content }}
                     {% else %}
                         {% include "fragments/default_intro.html" %}
@@ -36,7 +38,6 @@
                 {% endfor %}
             </section><!-- #content -->
         {% endif %}
-        {% set all_pages = pages + hidden_pages %}
         {% for p in all_pages|selectattr("metadata.homepage_sort")|sort(attribute="metadata.homepage_sort") %}
             {% if p.metadata.homepage_sort|int < 50 %}
                 <section id="{{ p.slug }}" class="wrapper{% if p.metadata.get("homepage_style", "") %} {{ p.metadata.homepage_style }}{% endif %}">
