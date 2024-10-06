@@ -7,6 +7,10 @@
 	margin-top: -0.5rem;
 }
 
+#header:has(img) {
+	height: 85px;
+}
+
 /*
 	Hyperspace by HTML5 UP
 	html5up.net | @ajlkn
