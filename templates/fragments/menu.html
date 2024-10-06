@@ -1,17 +1,32 @@
+{#
+    If `menu_style` should be either "main" to render the main menu, or "child" to render
+    navigation for child pages of this page (requires page-hierarchy plugin).
+#}
+{% set menu_style = menu_style|default("main") %}
 <ul>
-    {% if MENUITEMS is defined %}
-        {% for menu_title, menu_link in MENUITEMS %}
-            <li><a{% if page is defined and menu_link == page.url or page is not defined and menu_link == "" %} class="active"{% endif %} href="{{ SITEURL }}/{{ menu_link }}">{{ menu_title }}</a></li>
-        {% endfor %}
-    {% endif %}
-    {% if not THEME_MENU_ONLY_MENUITEMS|default(false) and DISPLAY_PAGES_ON_MENU %}
-        {% for p in pages|sort(attribute="metadata.menu_sort,title") %}
-            <li><a{% if page is defined and p == page %} class="active"{% endif %} href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-        {% endfor %}
-    {% endif %}
-    {% if not THEME_MENU_ONLY_MENUITEMS|default(false) and DISPLAY_CATEGORIES_ON_MENU %}
-        {% for c, _ in categories|sort(attribute=name) %}
-            <li><a{% if category is defined and c == category %} class="active"{% endif %} href="{{ SITEURL }}/{{ c.url }}">{{ c.name }}</a></li>
+    {% if menu_style != "child" %}
+        {% if MENUITEMS is defined %}
+            {% for menu_title, menu_link in MENUITEMS %}
+                <li><a{% if page is defined and menu_link == page.url or page is not defined and menu_link == "" %} class="active"{% endif %} href="{{ SITEURL }}/{{ menu_link }}">{{ menu_title }}</a></li>
+            {% endfor %}
+        {% endif %}
+        {% if not THEME_MENU_ONLY_MENUITEMS|default(false) and DISPLAY_PAGES_ON_MENU %}
+            {% for p in pages|sort(attribute="metadata.menu_sort,title") %}
+                <li><a{% if page is defined and p == page %} class="active"{% endif %} href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+            {% endfor %}
+        {% endif %}
+        {% if not THEME_MENU_ONLY_MENUITEMS|default(false) and DISPLAY_CATEGORIES_ON_MENU %}
+            {% for c, _ in categories|sort(attribute=name) %}
+                <li><a{% if category is defined and c == category %} class="active"{% endif %} href="{{ SITEURL }}/{{ c.url }}">{{ c.name }}</a></li>
+            {% endfor %}
+        {% endif %}
+    {% elif page.parent is defined and page.children is defined %}
+        {# This feature requires the page-hierarchy plugin #}
+        {% if page.parent %}
+            <li><a href="{{ SITEURL }}/{{ page.parent.url }}">{{ page.parent.title }}</a></li>
+        {% endif %}
+        {% for p in page.children|sort(attribute="metadata.menu_sort,title") %}
+            <li><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
         {% endfor %}
     {% endif %}
 </ul>

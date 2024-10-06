@@ -13,6 +13,11 @@
 	<div id="wrapper">
         <header id="header">
             <a href="{{ SITEURL }}/" class="title">{{ SITENAME }}</a>
+            <nav>
+                {% with menu_style="child" %}
+                    {% include "fragments/menu.html" %}
+                {% endwith %}
+            </nav>
         </header>
         {{ page.content }}
     </div>
