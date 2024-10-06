@@ -1,5 +1,12 @@
 @import url(fontawesome-all.min.css);
 
+/* Trinora edits to stock CSS */
+#header img {
+	height: 2.5rem;
+	position: absolute;
+	margin-top: -0.5rem;
+}
+
 /*
 	Hyperspace by HTML5 UP
 	html5up.net | @ajlkn

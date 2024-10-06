@@ -1,0 +1,12 @@
+<header id="header">
+    {% if THEME_HEADER_LOGO|default(False) %}
+        <a href="{{ SITEURL }}/"><img src="{{ SITEURL }}/{{ THEME_HEADER_LOGO }}" alt="{{ SITENAME }}"></a>
+    {% else %}
+        <a href="{{ SITEURL }}/" class="title">{{ SITENAME }}</a>
+    {% endif %}
+    <nav>
+        {% with menu_style="child" %}
+            {% include "fragments/menu.html" %}
+        {% endwith %}
+    </nav>
+</header>
