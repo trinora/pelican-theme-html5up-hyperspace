@@ -1,6 +1,6 @@
 <header id="header">
     {% if THEME_HEADER_LOGO|default(False) %}
-        <a href="{{ SITEURL }}/"><img src="{{ SITEURL }}/{{ THEME_HEADER_LOGO }}" alt="{{ SITENAME }}"></a>
+        <a href="{{ SITEURL }}/" class="title_logo" style="background-image: url('{{ SITEURL }}/{{ THEME_HEADER_LOGO }}')">{{ SITENAME }}</a>
     {% else %}
         <a href="{{ SITEURL }}/" class="title">{{ SITENAME }}</a>
     {% endif %}
